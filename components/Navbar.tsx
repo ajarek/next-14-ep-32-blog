@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import ToggleTheme from './ToggleTheme'
-
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
- 
+  const pathName = usePathname();
+ const session = false;
+  const isAdmin = false;
 
   return (
     <div className='max-w-[1440px] mx-auto fixed navbar bg-base-100 shadow px-12 max-sm:px-4 z-10'>
@@ -38,28 +40,38 @@ const Navbar = () => {
           >
            
             <Link
-            className='hover:underline transition-all '
-            href='/premium'
+             className={pathName==="/blog" ? "underline transition-all" : "transition-all"}
+            href='/blog'
           >
-            Premium
+           Blog
           </Link>
+          {session && isAdmin && (
+            
           <Link
-            className='hover:underline transition-all '
-            href='/profile'
+          className={pathName==="/admin"?"underline transition-all":"transition-all"}
+            href='/admin'
           >
-            Profile
+            Admin
           </Link>
-          <Link
-            className='hover:underline transition-all '
+          )}
+         { session ? (
+          
+           <button className='btn btn-ghost btn-sm w-fit text-xl font-normal'>Logout</button>
+          ): (
+            <Link
+            className={pathName==="/login"?"underline transition-all":"transition-all"}
             href='/login'
           >
             Login
           </Link>
+          )
+        }
+          
           </ul>
         </div>
         <Link
           href={'/'}
-          className='flex items-center'
+          className={pathName==='/'?'underline flex items-center transition-all':'flex items-center transition-all'}
         >
           
           <button className='btn btn-ghost text-xl'>Homepage</button>
@@ -69,24 +81,34 @@ const Navbar = () => {
       <div className='navbar-end'>
         <ul className='flex items-center gap-6 max-sm:hidden text-xl '>
           
-          <Link
-            className='hover:underline transition-all '
-            href='/premium'
+                 
+        <Link
+            className={pathName==="/blog"?"underline transition-all":"transition-all"}
+            href='/blog'
           >
-            Premium
+           Blog
           </Link>
+          {session && isAdmin && (
+            
           <Link
-            className='hover:underline transition-all '
-            href='/profile'
+          className={pathName==="/admin"?"underline transition-all":"transition-all"}
+            href='/admin'
           >
-            Profile
+            Admin
           </Link>
-          <Link
-            className='hover:underline transition-all '
+          )}
+         { session ? (
+          
+           <button className='btn btn-ghost btn-sm w-fit text-xl font-normal'>Logout</button>
+          ): (
+            <Link
+            className={pathName==="/login"?"underline transition-all":"transition-all"}
             href='/login'
           >
             Login
           </Link>
+          )
+        }
           
         </ul>
       </div>
