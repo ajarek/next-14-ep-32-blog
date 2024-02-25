@@ -40,13 +40,13 @@ const Navbar = () => {
           >
            
             <Link
-             className={pathName==="/blog" ? "underline transition-all" : "transition-all"}
+             className={pathName==="/blog" ? "underline  transition-all" : "transition-all"}
             href='/blog'
           >
            Blog
           </Link>
             <Link
-             className={pathName==="/contact" ? "underline transition-all" : "transition-all"}
+             className={pathName==="/contact" ? "underline  transition-all" : "transition-all"}
             href='/contact'
           >
            Contact
@@ -54,7 +54,7 @@ const Navbar = () => {
           {session && isAdmin && (
             
           <Link
-          className={pathName==="/admin"?"underline transition-all":"transition-all"}
+          className={pathName==="/admin"?"underline  transition-all":"transition-all"}
             href='/admin'
           >
             Admin
@@ -65,7 +65,7 @@ const Navbar = () => {
            <button className='btn btn-ghost btn-sm w-fit text-xl font-normal'>Logout</button>
           ): (
             <Link
-            className={pathName==="/login"?"underline transition-all":"transition-all"}
+            className={pathName==="/login"?"underline  transition-all":"transition-all"}
             href='/login'
           >
             Login
@@ -77,7 +77,7 @@ const Navbar = () => {
         </div>
         <Link
           href={'/'}
-          className={pathName==='/'?'underline flex items-center transition-all':'flex items-center transition-all'}
+          className={pathName==='/'?'underline  flex items-center transition-all':'flex items-center transition-all'}
         >
           
           <button className='btn btn-ghost text-xl'>Homepage</button>
@@ -89,13 +89,13 @@ const Navbar = () => {
           
                  
         <Link
-            className={pathName==="/blog"?"underline transition-all":"transition-all"}
+            className={pathName==="/blog"?"underline  transition-all":"transition-all"}
             href='/blog'
           >
            Blog
           </Link>
           <Link
-             className={pathName==="/contact" ? "underline transition-all" : "transition-all"}
+             className={pathName==="/contact" ? "underline  transition-all" : "transition-all"}
             href='/contact'
           >
            Contact
@@ -103,7 +103,7 @@ const Navbar = () => {
           {session && isAdmin && (
             
           <Link
-          className={pathName==="/admin"?"underline transition-all":"transition-all"}
+          className={pathName==="/admin"?"underline  transition-all":"transition-all"}
             href='/admin'
           >
             Admin
@@ -114,7 +114,7 @@ const Navbar = () => {
            <button className='btn btn-ghost btn-sm w-fit text-xl font-normal'>Logout</button>
           ): (
             <Link
-            className={pathName==="/login"?"underline transition-all":"transition-all"}
+            className={pathName==="/login"?"underline  transition-all":"transition-all"}
             href='/login'
           >
             Login

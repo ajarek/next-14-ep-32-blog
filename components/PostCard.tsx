@@ -1,23 +1,34 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
-
-const PostCard = () => {
+type Post = {
+  id: number
+  title: string
+  image: string
+  body: string
+  date: string
+}
+const PostCard = ({post}: {post: Post}) => {
   return (
-    <div className='card w-96 bg-base-100 shadow-xl'>
-      <figure className='px-10 pt-10'>
+
+    <div className='card w-72 bg-base-100  relative'>
+      <div className='absolute -right-8 top-[35%] -rotate-90'>
+        {post.date}
+      </div>
+      <figure className='pr-10 '>
         <Image
-          src='https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'
-          alt='Shoes'
+          src={post.image}
+          alt={post.title}
           width={300}
-          height={300}  
-          className='rounded-xl'
+          height={451}  
+          className='rounded-sm'
         />
       </figure>
-      <div className='card-body items-center text-center'>
-        <h2 className='card-title'>Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+      <div className='card-body items-left text-left px-0 py-4'>
+        <h2 className='card-title'>{post.title}</h2>
+        <p>{(post.body).slice(0, 9)}...</p>
         <div className='card-actions'>
-          <button className='btn btn-primary'>Buy Now</button>
+         <Link href={`/blog/${post.id}`}>READ MORE</Link>
         </div>
       </div>
     </div>
