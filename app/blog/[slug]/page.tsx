@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Blog = () => {
+const BlogId = () => {
   return (
-    <div className='flex min-h-screen flex-col items-center justify-between px-12 py-24 '>Blog</div>
+    <div className='flex min-h-screen flex-col items-center justify-between px-12 py-24 '>BlogId</div>
   )
 }
 
-export default Blog
+export default BlogId

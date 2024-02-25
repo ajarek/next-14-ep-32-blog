@@ -45,6 +45,12 @@ const Navbar = () => {
           >
            Blog
           </Link>
+            <Link
+             className={pathName==="/contact" ? "underline transition-all" : "transition-all"}
+            href='/contact'
+          >
+           Contact
+          </Link>
           {session && isAdmin && (
             
           <Link
@@ -87,6 +93,12 @@ const Navbar = () => {
             href='/blog'
           >
            Blog
+          </Link>
+          <Link
+             className={pathName==="/contact" ? "underline transition-all" : "transition-all"}
+            href='/contact'
+          >
+           Contact
           </Link>
           {session && isAdmin && (
             
