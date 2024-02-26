@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 type Post = {
   id: number
+  user:string
   title: string
   image: string
   body: string

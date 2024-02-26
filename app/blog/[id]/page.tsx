@@ -4,6 +4,7 @@ import data from '@/public/data/data.json'
 import NotFound from '@/app/not-found'
 type Post = {
   id: number
+  user:string
   title: string
   image: string
   body: string
@@ -31,7 +32,8 @@ const BlogId = ({ params }: { params: { id: string } }) => {
       <div className='flex flex-col justify-center items-start px-8 max-sm:px-2 gap-4 '>
         <h1 className='text-xl font-semibold'>{postId.title}</h1>
         <p className='text-lg'>{postId.body}</p>
-        <p>{postId.date}</p>
+        <p>author: {postId.user} </p>
+        <p>date: {postId.date} </p>
       </div>
     </div>
   )

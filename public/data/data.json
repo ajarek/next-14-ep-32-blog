@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "user":"Jan",
     "title": "John",
     "image": "/images/cat-g1.jpg",
     "body": "If a cat The cat (Felis catus), commonly referred to as the domestic cat or house cat, is the only domesticated species in the family Felidae. Recent advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC.",
@@ -8,6 +9,7 @@
   },
   {
     "id": 2,
+    "user":"Jan",
     "title": "Jane",
     "image": "/images/cat-g2.jpg",
     "body": "If a cat The cat (Felis catus), commonly referred to as the domestic cat or house cat, is the only domesticated species in the family Felidae. Recent advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC.",
@@ -15,6 +17,7 @@
   },
   {
     "id": 3,
+    "user":"Anna",
     "title": "Joe",
     "image": "/images/cat-g3.jpg",
     "body": "If a cat The cat (Felis catus), commonly referred to as the domestic cat or house cat, is the only domesticated species in the family Felidae. Recent advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC.",
@@ -22,6 +25,7 @@
   },
   {
     "id": 4,
+    "user":"Anna",
     "title": "Jill",
     "image": "/images/cat-g4.jpg",
     "body": "If a cat The cat (Felis catus), commonly referred to as the domestic cat or house cat, is the only domesticated species in the family Felidae. Recent advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC.",
@@ -29,6 +33,7 @@
   },
   {
     "id": 5,
+    "user":"Jack",
     "title": "Jim",
     "image": "/images/cat-g7.jpg",
     "body": "If a cat The cat (Felis catus), commonly referred to as the domestic cat or house cat, is the only domesticated species in the family Felidae. Recent advances in archaeology and genetics have shown that the domestication of the cat occurred in the Near East around 7500 BC.",
