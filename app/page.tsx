@@ -32,6 +32,7 @@ export default function Home() {
           alt='hero'
           width={450}
           height={450}
+          className='rounded-lg'
         />
       </div>
      
