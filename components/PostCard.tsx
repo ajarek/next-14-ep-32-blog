@@ -2,34 +2,29 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 type Post = {
-  id: number
-  user:string
+  _id: number
+  user: string
   title: string
-  image: string
-  body: string
-  date: string
+  img: string
+  desc: string
 }
-const PostCard = ({post}: {post: Post}) => {
+const PostCard = ({ post }: { post: Post }) => {
   return (
-
-    <div className='card w-72 bg-base-100  relative'>
-      <div className='absolute -right-8 top-[35%] -rotate-90'>
-        {post.date}
-      </div>
-      <figure className='pr-10 '>
+    <div className='card w-72 bg-base-100  shadow-xl  '>
+      <figure className='pt-4 '>
         <Image
-          src={post.image}
+          src={post.img}
           alt={post.title}
-          width={300}
-          height={451}  
-          className='rounded-sm'
+          width={260}
+          height={400}
+          className='rounded-xl'
         />
       </figure>
-      <div className='card-body items-left text-left px-0 py-4'>
+      <div className='card-body items-left text-left p-4'>
         <h2 className='card-title'>{post.title}</h2>
-        <p>{(post.body).slice(0, 9)}...</p>
+        <p>{post.desc}</p>
         <div className='card-actions'>
-         <Link href={`/blog/${post.id}`}>READ MORE</Link>
+          <Link className='btn btn-primary btn-sm' href={`/blog/${post._id}`}>READ MORE</Link>
         </div>
       </div>
     </div>
