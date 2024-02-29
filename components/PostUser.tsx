@@ -8,23 +8,30 @@ type Post = {
   password: string
   isAdmin: boolean
 }
-const PostUser = async ({userId }: { userId: number }) => {
+const PostUser = async ({
+  userId,
+  createdAt,
+}: {
+  userId: number
+  createdAt: string
+}) => {
   const user: Post = await getUser(userId)
   return (
-    <div className=' flex items-center  '>
+    <div className=' flex items-center  mb-4  '>
       <figure className=''>
         <Image
-          src={user.img? user.img:'/images/noavatar.png'}
+          src={user.img ? user.img : '/images/noavatar.png'}
           alt='user'
           width={50}
           height={50}
           className='rounded-full'
         />
       </figure>
-      <div className='flex flex-col items-center justify-center text-left gap-1 px-2 '>
-        <h2 className=''>{user.username}</h2>
-        <p>{user.email}</p>
-        <p>{user.isAdmin}</p>
+      <div className='grid grid-cols-2 grid-row-2  px-2  '>
+        <div className='text-slate-500'>Author:</div>
+        <div className='text-slate-500'>Published:</div>
+        <div>{user.username}</div>
+        <div>{createdAt}</div>
       </div>
     </div>
   )

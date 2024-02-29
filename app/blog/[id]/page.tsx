@@ -30,10 +30,9 @@ const BlogId = async ({ params }: { params: { id: number } }) => {
         />
       </div>
       <div className='flex flex-col justify-center items-start px-8 max-sm:px-2 gap-4 '>
-        <p className='mb-4'>author: <PostUser userId={userId.id} /> </p>
+         <PostUser userId={userId.id} createdAt={postId.createdAt?.toString().slice(4, 16)}/>
         <h1 className='text-xl font-semibold'>{postId.title}</h1>
         <p className='text-lg'>{postId.desc}</p>
-        <p>date: {postId.createdAt?.toString().slice(4, 16)}</p>
       </div>
     </div>
   )
