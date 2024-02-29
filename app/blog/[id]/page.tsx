@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import NotFound from '@/app/not-found'
 import { getPost, getUser } from '@/lib/data'
+import PostUser from '@/components/PostUser'
 type Post = {
   id: number
   user: string
@@ -17,7 +18,7 @@ const BlogId = async ({ params }: { params: { id: number } }) => {
   if (!postId) {
     return <NotFound />
   }
-  console.log("User created at:", postId.createdAt);
+  
   return (
     <div className='w-full min-h-screen grid grid-cols-2 max-sm:grid-cols-1 px-12 py-24 gap-4 '>
       <div className='flex justify-center items-center'>
@@ -29,10 +30,10 @@ const BlogId = async ({ params }: { params: { id: number } }) => {
         />
       </div>
       <div className='flex flex-col justify-center items-start px-8 max-sm:px-2 gap-4 '>
+        <p className='mb-4'>author: <PostUser userId={userId.id} /> </p>
         <h1 className='text-xl font-semibold'>{postId.title}</h1>
         <p className='text-lg'>{postId.desc}</p>
-        <p>author: {userId.username} </p>
-        <p>date: {postId.createdAt}</p>
+        <p>date: {postId.createdAt?.toString().slice(4, 16)}</p>
       </div>
     </div>
   )
