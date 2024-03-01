@@ -14,6 +14,8 @@ export type Post = {
   img: string
   userId: string
   slug: string
+  id: number
+  createdAt: Date
 }
 
 const userSchema = new mongoose.Schema(

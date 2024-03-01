@@ -2,15 +2,8 @@ import Image from 'next/image'
 import NotFound from '@/app/not-found'
 import { getPost, getUser } from '@/lib/data'
 import PostUser from '@/components/PostUser'
-type Post = {
-  id: number
-  user: string
-  title: string
-  img: string
-  desc: string
-  userId: number
-  createdAt: string
-}
+import { Post } from '@/lib/models'
+
 
 const BlogId = async ({ params }: { params: { id: number } }) => {
   const postId: Post = await getPost(params.id)

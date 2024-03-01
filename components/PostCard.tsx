@@ -1,19 +1,13 @@
+import { Post } from '@/lib/models'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-type Post = {
-  _id: number
-  user: string
-  title: string
-  img: string
-  desc: string
-  createdAt: string 
-}
+
 const PostCard = ({ post }: { post: Post }) => {
   return (
     <div className='card w-80 bg-base-100  shadow-xl pr-8 relative border-2 border-base-200'>
       <div className='absolute top-[180px] right-[-20px] -rotate-90'>
-        {post.createdAt?.toString().slice(4, 16)}
+        {post.createdAt?.toString().slice(0,10)}
       </div>
       <figure className='pt-4 '>
         <Image
