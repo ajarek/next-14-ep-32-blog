@@ -12,7 +12,7 @@ export type Post = {
   title: string
   desc: string
   img: string
-  userId: string
+  userId: number
   slug: string
   id: number
   createdAt: Date

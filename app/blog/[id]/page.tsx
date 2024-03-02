@@ -7,7 +7,8 @@ import { Post } from '@/lib/models'
 
 const BlogId = async ({ params }: { params: { id: number } }) => {
   const postId: Post = await getPost(params.id)
-  const userId=await getUser(postId.userId)
+  const userId = await getUser(postId.userId)
+  
   if (!postId) {
     return <NotFound />
   }

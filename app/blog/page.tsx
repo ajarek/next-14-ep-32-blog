@@ -13,6 +13,7 @@ const getData = async () => {
   return res.json();
 }
 const Blog = async () => {
+  // const posts = await getPosts()
   const posts = await getData()
   return (
     <div className='flex min-h-screen  flex-wrap items-center justify-center px-12 max-sm:px-0 py-24 gap-8'>
