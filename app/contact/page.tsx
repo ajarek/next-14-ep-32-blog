@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import React from 'react'
 
-const Contact = () => {
+const Contact = async () => {
+ 
   return (
     <div className='w-full min-h-screen grid grid-cols-2 max-sm:grid-cols-1 px-12 py-24 '>
       <div className='flex justify-center items-center'>
@@ -21,6 +21,7 @@ const Contact = () => {
 <button className="btn btn-primary w-full  ">Send</button>
 </form>
       </div>
+     
     </div>
   )
 }
