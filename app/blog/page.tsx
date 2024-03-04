@@ -2,8 +2,10 @@ import PostCard from '@/components/PostCard'
 import React from 'react'
 import { getPosts } from '@/lib/data'
 import { Post } from '@/lib/models';
-
+import {auth} from '@/app/api/auth/auth'
+import {redirect} from 'next/navigation'
 const getData = async () => {
+
   const res = await fetch("http://localhost:3000/api/blog", {next:{revalidate:3600}});
 
   if (!res.ok) {
@@ -13,6 +15,11 @@ const getData = async () => {
   return res.json();
 }
 const Blog = async () => {
+  const session = await auth()
+  if (!session) {
+    redirect('/api/auth/signin')
+
+  }
   // const posts = await getPosts()
   const posts = await getData()
   return (

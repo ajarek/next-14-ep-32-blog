@@ -3,11 +3,16 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import GitHub from 'next-auth/providers/github'
 import { User } from '@/lib/models'
 import connectToDb from '@/lib/connectToDb'
-import { redirect } from 'next/dist/server/api-utils'
+
 export const {
   auth,
   handlers: { GET, POST },
 } = NextAuth({
+  pages: {
+    error: '/register',
+    
+  },
+  
   providers: [
     GitHub({
       clientId: process.env.GITHUB_ID,
@@ -20,12 +25,14 @@ export const {
         password: { type: 'password', required: true },
       },
       async authorize(credentials: any) {
+        
         await connectToDb()
         try {
           const user = await User.findOne({ password: credentials.password })
           if (user) {
             return user
           }
+         
           
         } catch (err: any) {
           throw new Error(err)
@@ -34,4 +41,5 @@ export const {
     }),
   ],
   secret: process.env.AUTH_SECRET,
+  
 })
