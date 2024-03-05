@@ -1,18 +1,11 @@
 'use server'
 
 import connectToDb from './connectToDb'
-import { Post } from './models'
+import { Post, User } from './models'
 import { revalidatePath } from 'next/cache'
 
-type FormData = {
-  title: string
-  desc: string
-  slug: string
-  userId: string
-  img: string
-  id: string
-}
-export const addPost = async (formData: FormData) => {
+
+export const addPost = async (formData:Post) => {
   
   const { title, desc, slug, userId, img } = formData
   try {
@@ -31,7 +24,7 @@ export const addPost = async (formData: FormData) => {
     console.log(err)
   }
 }
-export const deletePost = async (formData: FormData) => {
+export const deletePost = async (formData: Post) => {
  
   const { id } = formData
   try {
@@ -43,5 +36,22 @@ export const deletePost = async (formData: FormData) => {
   } catch (err) {
     console.log(err)
     return {err:'Something went wrong'}
+  }
+}
+
+export const addUser = async (formData: User) => {
+  console.log(formData);
+  
+  const { username, email, password, img, isAdmin } = formData
+  try {
+    connectToDb()
+    const newUser = new User({
+      username, email, password, img, isAdmin
+    })
+    await newUser.save()
+    console.log('saved' + newUser)
+    revalidatePath('/')
+  } catch (err) {
+    console.log(err)
   }
 }

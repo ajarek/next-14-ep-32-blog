@@ -1,9 +1,13 @@
-import React from 'react'
+import RegisterForm from "@/components/RegisterForm";
 
 const Register = () => {
   return (
-    <div className='pt-72'>Register</div>
-  )
-}
+    <div className='w-full min-h-screen px-12 py-24  '>
+      <div className=''>
+        <RegisterForm/>
+      </div>
+    </div>
+  );
+};
 
-export default Register
+export default Register;

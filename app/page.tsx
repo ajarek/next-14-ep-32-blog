@@ -1,15 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import {redirect} from 'next/navigation'
-import {auth} from '@/app/api/auth/auth'
+
 
 
 export  default async function Home() {
-  const session = await auth()
-  // if (!session) {
-  //   redirect('/api/auth/signin')
-
-  // }
+  
+ 
   return (
     <div className='w-full min-h-screen grid grid-cols-2 max-sm:grid-cols-1 px-12 py-24 gap-4 '>
       <div className='flex flex-col justify-center items-start px-4 gap-8'>
@@ -43,7 +39,7 @@ export  default async function Home() {
           className='rounded-lg'
         />
       </div>
-    {session &&  <Link className='btn btn-error' href={'/api/auth/signout'}>Logout</Link>}
+    
     </div>
   )
 }
