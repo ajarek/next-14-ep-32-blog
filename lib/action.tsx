@@ -3,10 +3,8 @@
 import connectToDb from './connectToDb'
 import { Post, User } from './models'
 import { revalidatePath } from 'next/cache'
-
-
-export const addPost = async (formData:Post) => {
-  
+import bcrypt from 'bcryptjs'
+export const addPost = async (formData: Post) => {
   const { title, desc, slug, userId, img } = formData
   try {
     connectToDb()
@@ -25,28 +23,30 @@ export const addPost = async (formData:Post) => {
   }
 }
 export const deletePost = async (formData: Post) => {
- 
   const { id } = formData
   try {
     connectToDb()
-    
+
     await Post.findByIdAndDelete(id)
-    console.log('deleted from db'+id)
+    console.log('deleted from db' + id)
     revalidatePath('/blog')
   } catch (err) {
     console.log(err)
-    return {err:'Something went wrong'}
+    return { err: 'Something went wrong' }
   }
 }
 
 export const addUser = async (formData: User) => {
-  console.log(formData);
-  
   const { username, email, password, img, isAdmin } = formData
+  const hashedPassword = await bcrypt.hash(password, 5)
   try {
     connectToDb()
     const newUser = new User({
-      username, email, password, img, isAdmin
+      username,
+      email,
+      password: hashedPassword,
+      img,
+      isAdmin,
     })
     await newUser.save()
     console.log('saved' + newUser)

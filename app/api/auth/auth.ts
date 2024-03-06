@@ -3,7 +3,7 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 import GitHub from 'next-auth/providers/github'
 import { User } from '@/lib/models'
 import connectToDb from '@/lib/connectToDb'
-
+import bcrypt from 'bcryptjs'
 export const {
   auth,
   handlers: { GET, POST },
@@ -28,9 +28,15 @@ export const {
         
         await connectToDb()
         try {
-          const user = await User.findOne({ password: credentials.password })
+          const user = await User.findOne({ username: credentials.username})
           if (user) {
-            return user
+            const isPasswordCorrect = await bcrypt.compare(
+              credentials.password,
+              user.password
+            )
+            if (isPasswordCorrect) {
+              return user
+            }
           }
          
           

@@ -36,9 +36,9 @@ const RegisterForm = () => {
   }
 
   return (
-    <>
+    <div className='min-h-full flex flex-col justify-start items-center'>
       <form
-        className='flex flex-col gap-4'
+        className='w-80  flex flex-col gap-4 p-4 shadow-lg'
         onSubmit={handleSubmit}
       >
         <input
@@ -46,36 +46,41 @@ const RegisterForm = () => {
           placeholder='username'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="input input-bordered w-full max-w-xs"
         />
         <input
           type='email'
           placeholder='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="input input-bordered w-full max-w-xs"
         />
         <input
           type='password'
           placeholder='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="input input-bordered w-full max-w-xs"
         />
         <input
           type='text'
           placeholder='image'
           value={img}
           onChange={(e) => setImage(e.target.value)}
+          className="input input-bordered w-full max-w-xs"
         />
         <input
           type='hidden'
           name='isAdmin'
           value={`${DEFAULT_IS_ADMIN}`}
+          className="input input-bordered w-full max-w-xs"
         />
-        <button type='submit'>Register</button>
-      </form>
-      <Link href='/login'>
+        <button className='btn btn-primary' type='submit'>Register</button>
+      <Link href='/api/auth/signin'>
         Have an account? <b>Login</b>
       </Link>
-    </>
+      </form>
+    </div>
   )
 }
 

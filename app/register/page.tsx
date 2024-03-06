@@ -1,4 +1,5 @@
 import RegisterForm from "@/components/RegisterForm";
+import Link from "next/link";
 
 const Register = () => {
   return (
@@ -7,6 +8,7 @@ const Register = () => {
         <RegisterForm/>
       </div>
     </div>
+
   );
 };
 
