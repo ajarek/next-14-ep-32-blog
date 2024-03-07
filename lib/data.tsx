@@ -10,7 +10,12 @@ export const getUsers = async () => {
   const users = await User.find()
   return users
 }
-export const getUser = async (id:number) => {
+export const getUser = async (email:string) => {
+  await connectToDb()
+  const user = await User.findOne({ email })
+  return user
+}
+export const getUserId = async (id:number) => {
   await connectToDb()
   const user = await User.findById(id)
   return user

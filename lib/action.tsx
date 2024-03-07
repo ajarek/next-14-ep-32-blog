@@ -5,13 +5,12 @@ import { Post, User } from './models'
 import { revalidatePath } from 'next/cache'
 import bcrypt from 'bcryptjs'
 export const addPost = async (formData: Post) => {
-  const { title, desc, slug, userId, img } = formData
+  const { title, desc, userId, img } = formData
   try {
     connectToDb()
     const newPost = new Post({
       title,
       desc,
-      slug,
       userId,
       img,
     })
