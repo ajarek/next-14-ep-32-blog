@@ -28,7 +28,7 @@ const RegisterForm = ({userId}:{userId:number}) => {
 
     try {
       await addPost(formData)
-      // router.push('/blog')
+       router.push('/blog')
     } catch (error) {
       console.log(error)
     }
