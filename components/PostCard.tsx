@@ -14,13 +14,13 @@ const PostCard = ({ post }: { post: Post }) => {
           src={post.img}
           alt={post.title}
           width={260}
-          height={400}
-          className='rounded-xl'
+          height={320}
+          className='rounded-xl object-cover object-center w-[260px] h-[320px]'
         />
       </figure>
       <div className='card-body items-left text-left p-4'>
         <h2 className='card-title'>{post.title}</h2>
-        <p>{post.desc}</p>
+        <p>{(post.desc).slice(0,30)}...</p>
         <div className='card-actions'>
           <Link className='btn btn-primary btn-sm' href={`/blog/${post._id}`}>READ MORE</Link>
         </div>

@@ -18,12 +18,12 @@ const RegisterForm = ({userId}:{userId:string}) => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault()
-    const formData: Post = {
+    const formData: any = {
       title,
       desc,
       img,
       userId: userId,
-      
+     
     }
 
     try {

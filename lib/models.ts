@@ -9,10 +9,12 @@ export type User = {
 }
 
 export type Post = {
+  _id:string
   title: string
   desc: string
   img: string
   userId: string
+  createdAt: Date
 }
 
 const userSchema = new mongoose.Schema(

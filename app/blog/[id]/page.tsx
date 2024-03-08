@@ -17,8 +17,9 @@ const BlogId = async ({ params }: { params: { id: number } }) => {
         <Image
           src={postId.img}
           alt={postId.title}
-          width={280}
-          height={358}
+          width={300}
+          height={380}
+          className='rounded-xl object-contain  w-[300px] h-[380px]'
         />
       </div>
       <div className='flex flex-col justify-center items-start px-8 max-sm:px-2 gap-4 '>
