@@ -26,7 +26,7 @@ const Blog = async () => {
     <div className='flex min-h-screen  flex-wrap items-center justify-center px-12 max-sm:px-0 py-24 gap-8'>
       {posts.map((post:Post) => (
         <PostCard
-          key={post.id}
+          key={post._id}
           post={post}
         />
       ))}

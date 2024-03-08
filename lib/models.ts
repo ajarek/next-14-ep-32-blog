@@ -12,7 +12,7 @@ export type Post = {
   title: string
   desc: string
   img: string
-  userId: number
+  userId: string
 }
 
 const userSchema = new mongoose.Schema(

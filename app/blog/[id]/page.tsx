@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import NotFound from '@/app/not-found'
-import { getPost, getUserId } from '@/lib/data'
+import { getPost, getUser } from '@/lib/data'
 import { Post, User } from '@/lib/models'
 
 const BlogId = async ({ params }: { params: { id: number } }) => {
   const postId: Post = await getPost(params.id)
-  const userName: User = await getUserId(postId.userId)
+  const userName: User = await getUser(postId.userId)
 
   if (!postId) {
     return <NotFound />

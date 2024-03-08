@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 
-const RegisterForm = ({userId}:{userId:number}) => {
+const RegisterForm = ({userId}:{userId:string}) => {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [img, setImg] = useState('')
