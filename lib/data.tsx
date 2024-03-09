@@ -26,6 +26,11 @@ export const getPosts = async () => {
   const posts = await Post.find()
   return posts
 }
+export const getPostsUser = async (userId:string) => {
+  await connectToDb()
+  const posts = await Post.find({userId})
+  return posts
+}
 export const getPost = async (id:number) => {
   await connectToDb()
   const post = await Post.findById(id)

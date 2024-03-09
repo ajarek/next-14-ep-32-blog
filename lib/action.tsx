@@ -21,7 +21,7 @@ export const addPost = async (formData: Post) => {
     console.log(err)
   }
 }
-export const deletePost = async (formData: Post) => {
+export const deletePost = async (formData: { id: string }) => {
   const { id } = formData
   try {
     connectToDb()

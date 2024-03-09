@@ -59,6 +59,7 @@ const Links = ({ session }: any) => {
             </Link>
           ))}
            {session &&<Link href={`/addblog/${session.user.email}`}>Add Blog</Link>}
+           {session &&<Link href={`/myblogs`}>My Blogs</Link>}
         </div>
       </div>
       {open && (
@@ -72,6 +73,7 @@ const Links = ({ session }: any) => {
             </Link>
           ))}
            {session &&<Link href={`/addblog/${session.user.email}`}>Add Blog</Link>}
+           {session &&<Link href={`/myblogs`}>My Blogs</Link>}
         </div>
       )}
       <ToggleTheme />
