@@ -33,7 +33,7 @@ const MyBlogs = async () => {
                 <Link href={`/blog/${post._id}`} className='btn btn-secondary btn-sm '>View</Link>
               </div>
               <div className='text-right'>
-                <button className='btn btn-primary btn-sm '>Edit</button>
+                <Link href={`/edit/${post._id}`} className='btn btn-primary btn-sm '>Edit</Link>
               </div>
               
                <DeleteForm idBlog={(post._id).toString()} />

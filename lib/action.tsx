@@ -34,6 +34,26 @@ export const deletePost = async (formData: { id: string }) => {
     return { err: 'Something went wrong' }
   }
 }
+export const updateDoc = async (formData: {
+  userId: string
+  title: string
+  desc: string
+  img: string
+}) => {
+ 
+  const {userId, title, desc, img } = formData
+  try {
+    connectToDb()
+  
+    const doc = await Post.findOneAndUpdate({userId:userId}, {title:title, desc:desc, img:img})
+    revalidatePath('/blog')
+    console.log(doc);
+    
+    
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 export const addUser = async (formData: User) => {
   const { username, email, password, img, isAdmin } = formData

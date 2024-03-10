@@ -2,17 +2,24 @@
 
 import { useState } from 'react'
 import { Post } from '@/lib/models'
-import { addPost } from '@/lib/action'
+import { updateDoc } from '@/lib/action'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-
-const RegisterForm = ({userId}:{userId:string}) => {
-  const [title, setTitle] = useState('')
-  const [desc, setDesc] = useState('')
-  const [img, setImg] = useState('')
- 
-  
+const EditForm = ({
+  editTitle,
+  userId,
+  editDesc,
+  editImg,
+}: {
+  editTitle: string
+  userId: string
+  editDesc: string
+  editImg: string
+}) => {
+  const [title, setTitle] = useState(editTitle)
+  const [desc, setDesc] = useState(editDesc)
+  const [img, setImg] = useState(editImg)
 
   const router = useRouter()
 
@@ -23,12 +30,11 @@ const RegisterForm = ({userId}:{userId:string}) => {
       desc,
       img,
       userId: userId,
-     
     }
-
+      console.log('formData',formData)
     try {
-      await addPost(formData)
-       router.push('/blog')
+      await updateDoc(formData)
+      router.push('/blog')
     } catch (error) {
       console.log(error)
     }
@@ -40,34 +46,38 @@ const RegisterForm = ({userId}:{userId:string}) => {
         className='w-80  flex flex-col gap-4 p-4 shadow-lg'
         onSubmit={handleSubmit}
       >
+        
         <input
           type='text'
           placeholder='title'
-          value={title}
+          defaultValue={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
-          autoFocus={true}
+          className='input input-bordered w-full max-w-xs'
         />
         <textarea
           placeholder='desc'
-          value={desc}
+          defaultValue={desc}
           onChange={(e) => setDesc(e.target.value)}
           className="textarea textarea-bordered "
         />
+        
         <input
           type='text'
           placeholder='img'
-          value={img}
+          defaultValue={img}
           onChange={(e) => setImg(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
-
+          className='input input-bordered w-full max-w-xs'
         />
-       
-        <button className='btn btn-primary' type='submit'>Add Blog</button>
-      
+
+        <button
+          className='btn btn-primary'
+          type='submit'
+        >
+          Update Blog
+        </button>
       </form>
     </div>
   )
 }
 
-export default RegisterForm
+export default EditForm

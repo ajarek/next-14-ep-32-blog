@@ -11,7 +11,7 @@ const links = [
   { id: 1, title: 'Homepage', path: '/' },
   {
     id: 2,
-    title: 'Blog',
+    title: 'Blogs',
     path: '/blog',
   },
   {

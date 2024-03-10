@@ -3,7 +3,7 @@ import NotFound from '@/app/not-found'
 import { getPost, getUser } from '@/lib/data'
 import { Post, User } from '@/lib/models'
 
-const BlogId = async ({ params }: { params: { id: number } }) => {
+const BlogId = async ({ params }: { params: { id: string } }) => {
   const postId: Post = await getPost(params.id)
   const userName: User = await getUser(postId.userId)
 
