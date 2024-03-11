@@ -40,16 +40,16 @@ export const updateDoc = async (formData: {
   desc: string
   img: string
 }) => {
- 
-  const {userId, title, desc, img } = formData
+  const { userId, title, desc, img } = formData
   try {
     connectToDb()
-  
-    const doc = await Post.findOneAndUpdate({userId:userId}, {title:title, desc:desc, img:img})
+
+    const doc = await Post.findOneAndUpdate(
+      { userId: userId },
+      { title: title, desc: desc, img: img }
+    )
     revalidatePath('/blog')
-    console.log(doc);
-    
-    
+    console.log(doc)
   } catch (err) {
     console.log(err)
   }

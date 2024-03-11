@@ -1,4 +1,3 @@
-import { getUser } from '@/lib/data'
 import BlogForm from '@/components/BlogForm'
 import { auth } from '@/app/api/auth/auth'
 import NotFound from '@/app/not-found'

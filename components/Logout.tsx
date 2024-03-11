@@ -13,7 +13,9 @@ const Logout = async ({ session }: any) => {
       ) : (
         <Link href={'/register'}>Login</Link>
       )}
-      {session && <span className='px-4 max-sm:hidden'>{session.user.email}</span>}
+      {session && (
+        <span className='px-4 max-sm:hidden'>{session.user.email}</span>
+      )}
     </>
   )
 }

@@ -1,10 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-
 import Link from 'next/link'
 import Image from 'next/image'
-
 import ToggleTheme from './ToggleTheme'
 
 const links = [
@@ -58,8 +56,10 @@ const Links = ({ session }: any) => {
               {link.title}
             </Link>
           ))}
-           {session &&<Link href={`/addblog/${session.user.email}`}>Add Blog</Link>}
-           {session &&<Link href={`/myblogs`}>My Blogs</Link>}
+          {session && (
+            <Link href={`/addblog/${session.user.email}`}>Add Blog</Link>
+          )}
+          {session && <Link href={`/myblogs`}>My Blogs</Link>}
         </div>
       </div>
       {open && (
@@ -72,8 +72,10 @@ const Links = ({ session }: any) => {
               {link.title}
             </Link>
           ))}
-           {session &&<Link href={`/addblog/${session.user.email}`}>Add Blog</Link>}
-           {session &&<Link href={`/myblogs`}>My Blogs</Link>}
+          {session && (
+            <Link href={`/addblog/${session.user.email}`}>Add Blog</Link>
+          )}
+          {session && <Link href={`/myblogs`}>My Blogs</Link>}
         </div>
       )}
       <ToggleTheme />

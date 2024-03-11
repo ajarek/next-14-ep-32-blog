@@ -18,9 +18,15 @@ const MyBlogs = async () => {
               key={post._id}
               className='grid grid-cols-7 max-sm:grid-cols-1   gap-4 border-2 border-base-200 p-4 rounded-xl items-center'
             >
-              <div> {post.createdAt?.toISOString().replace(/T/, ' ').replace(/\..+/, '')}</div>
+              <div>
+                {' '}
+                {post.createdAt
+                  ?.toISOString()
+                  .replace(/T/, ' ')
+                  .replace(/\..+/, '')}
+              </div>
               <div> {post.title}</div>
-              <div> {(post.desc).slice(0,30)}...</div>
+              <div> {post.desc.slice(0, 30)}...</div>
               <div>
                 <Image
                   src={post.img}
@@ -30,14 +36,23 @@ const MyBlogs = async () => {
                 />
               </div>
               <div className='text-right'>
-                <Link href={`/blog/${post._id}`} className='btn btn-secondary btn-sm '>View</Link>
+                <Link
+                  href={`/blog/${post._id}`}
+                  className='btn btn-secondary btn-sm '
+                >
+                  View
+                </Link>
               </div>
               <div className='text-right'>
-                <Link href={`/edit/${post._id}`} className='btn btn-primary btn-sm '>Edit</Link>
+                <Link
+                  href={`/edit/${post._id}`}
+                  className='btn btn-primary btn-sm '
+                >
+                  Edit
+                </Link>
               </div>
-              
-               <DeleteForm idBlog={(post._id).toString()} />
-              
+
+              <DeleteForm idBlog={post._id.toString()} />
             </div>
           ))}
         </div>

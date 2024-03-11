@@ -1,10 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Post } from '@/lib/models'
 import { updateDoc } from '@/lib/action'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 
 const EditForm = ({
   editTitle,
@@ -31,7 +29,7 @@ const EditForm = ({
       img,
       userId: userId,
     }
-      console.log('formData',formData)
+    console.log('formData', formData)
     try {
       await updateDoc(formData)
       router.push('/blog')
@@ -46,7 +44,6 @@ const EditForm = ({
         className='w-80  flex flex-col gap-4 p-4 shadow-lg'
         onSubmit={handleSubmit}
       >
-        
         <input
           type='text'
           placeholder='title'
@@ -58,9 +55,9 @@ const EditForm = ({
           placeholder='desc'
           defaultValue={desc}
           onChange={(e) => setDesc(e.target.value)}
-          className="textarea textarea-bordered "
+          className='textarea textarea-bordered '
         />
-        
+
         <input
           type='text'
           placeholder='img'

@@ -6,7 +6,7 @@ import { addUser } from '@/lib/action'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const DEFAULT_IS_ADMIN:boolean= false
+const DEFAULT_IS_ADMIN: boolean = false
 
 const RegisterForm = () => {
   const [username, setUsername] = useState('')
@@ -46,39 +46,44 @@ const RegisterForm = () => {
           placeholder='username'
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
+          className='input input-bordered w-full max-w-xs'
         />
         <input
           type='email'
           placeholder='email'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
+          className='input input-bordered w-full max-w-xs'
         />
         <input
           type='password'
           placeholder='password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
+          className='input input-bordered w-full max-w-xs'
         />
         <input
           type='text'
           placeholder='image'
           value={img}
           onChange={(e) => setImage(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
+          className='input input-bordered w-full max-w-xs'
         />
         <input
           type='hidden'
           name='isAdmin'
           value={`${DEFAULT_IS_ADMIN}`}
-          className="input input-bordered w-full max-w-xs"
+          className='input input-bordered w-full max-w-xs'
         />
-        <button className='btn btn-primary' type='submit'>Register</button>
-      <Link href='/api/auth/signin'>
-        Have an account? <b>Login</b>
-      </Link>
+        <button
+          className='btn btn-primary'
+          type='submit'
+        >
+          Register
+        </button>
+        <Link href='/api/auth/signin'>
+          Have an account? <b>Login</b>
+        </Link>
       </form>
     </div>
   )

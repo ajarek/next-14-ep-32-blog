@@ -6,13 +6,10 @@ import { addPost } from '@/lib/action'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-
-const RegisterForm = ({userId}:{userId:string}) => {
+const RegisterForm = ({ userId }: { userId: string }) => {
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
   const [img, setImg] = useState('')
- 
-  
 
   const router = useRouter()
 
@@ -23,12 +20,11 @@ const RegisterForm = ({userId}:{userId:string}) => {
       desc,
       img,
       userId: userId,
-     
     }
 
     try {
       await addPost(formData)
-       router.push('/blog')
+      router.push('/blog')
     } catch (error) {
       console.log(error)
     }
@@ -45,26 +41,29 @@ const RegisterForm = ({userId}:{userId:string}) => {
           placeholder='title'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
+          className='input input-bordered w-full max-w-xs'
           autoFocus={true}
         />
         <textarea
           placeholder='desc'
           value={desc}
           onChange={(e) => setDesc(e.target.value)}
-          className="textarea textarea-bordered "
+          className='textarea textarea-bordered '
         />
         <input
           type='text'
           placeholder='img'
           value={img}
           onChange={(e) => setImg(e.target.value)}
-          className="input input-bordered w-full max-w-xs"
-
+          className='input input-bordered w-full max-w-xs'
         />
-       
-        <button className='btn btn-primary' type='submit'>Add Blog</button>
-      
+
+        <button
+          className='btn btn-primary'
+          type='submit'
+        >
+          Add Blog
+        </button>
       </form>
     </div>
   )

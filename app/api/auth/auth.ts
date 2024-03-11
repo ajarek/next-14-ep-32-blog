@@ -10,9 +10,8 @@ export const {
 } = NextAuth({
   pages: {
     error: '/register',
-    
   },
-  
+
   providers: [
     GitHub({
       clientId: process.env.GITHUB_ID,
@@ -25,10 +24,9 @@ export const {
         password: { type: 'password', required: true },
       },
       async authorize(credentials: any) {
-        
         await connectToDb()
         try {
-          const user = await User.findOne({ username: credentials.username})
+          const user = await User.findOne({ username: credentials.username })
           if (user) {
             const isPasswordCorrect = await bcrypt.compare(
               credentials.password,
@@ -38,8 +36,6 @@ export const {
               return user
             }
           }
-         
-          
         } catch (err: any) {
           throw new Error(err)
         }
@@ -47,5 +43,4 @@ export const {
     }),
   ],
   secret: process.env.AUTH_SECRET,
-  
 })
